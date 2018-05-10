@@ -1,0 +1,577 @@
+@gold: hsl(48, 98%, 59%);
+@goldLight: hsl(51, 98%, 65%);
+
+@seafoam: hsl(170, 46%, 48%);
+@seafoamDark: hsl(170, 50%, 48%);
+
+@royalBlue: hsl(237, 60%, 24%);
+
+.Mobile-overlay,
+.Mobile-bar.Mobile-bar--top {
+    display: none;
+}
+
+.Site {
+    .Index-page-content {
+        opacity: 0;
+        transition: opacity 0.6s;
+    }
+    &.loaded {
+        .Index-page-content {
+            opacity: 1;
+        }
+    }
+}
+
+h1 {
+    font-family: "Geomanist" !important;
+    font-weight: bold !important;
+    letter-spacing: 1px;
+}
+
+h2,
+h3,
+a,
+div,
+input {
+    font-family: "Geomanist" !important;
+    font-weight: bold !important;
+    letter-spacing: 0;
+}
+
+p {
+    font-family: "Geomanist" !important;
+    font-weight: 300 !important;
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+
+figure {
+    font-family: "Geomanist, italic";
+}
+
+@media screen and (max-width:640px) {
+    #brand-money-shot {
+        h1 {
+            font-size: 5vw !important;
+            text-align: center !important;
+        }
+        .brand-mark {
+            max-width: 100px;
+        }
+    }
+    [id*=seafoam] {
+        h3 {
+            font-size: 1.1em;
+            text-align: justify !important;
+        }
+    }
+    #quote {
+        div {
+            font-size: 4vh !important;
+        }
+    }
+    #who-we-are {
+        h2 {
+            text-align: left !important;
+        }
+        h3 {
+            font-size: 2em;
+            text-align: center !important;
+        }
+    }
+    .sqs-block-button-container--right {
+        text-align: center !important;
+    }
+    .sqs-block-spacer {
+        padding: 0;
+    }
+    #contact-seafoam {
+        h2,
+        .lightbox-handle-wrapper {
+            text-align: center !important;
+        }
+    }
+}
+
+@keyframes fadeInMark {
+    from {
+        opacity: 0;
+        fill-opacity: 0;
+    }
+    to {
+        opacity: 1;
+        fill-opacity: 1;
+    }
+}
+
+.transition-mark(@delay) {
+    @keyframes fadeInOutMark {
+        from {
+            fill-opacity: 0.8;
+        }
+        to {
+            fill-opacity: 0.2;
+        }
+    }
+    animation:fadeInOutMark 1.4s linear infinite alternate;
+    animation-delay:@delay;
+}
+
+.brand-logo {
+    max-width: 500px;
+    margin: 0 auto;
+    svg path {
+        fill: hsl(45, 100%, 90%);
+        &.cls-7 {
+            opacity: 0.6;
+            .transition-mark(0s);
+        }
+        &.cls-8 {
+            opacity: 0.2;
+            .transition-mark(0.4s);
+        }
+        &.cls-9 {
+            opacity: 0.1;
+            .transition-mark(0.8s);
+        }
+        &.cls-10 {
+            opacity: 0.05;
+            .transition-mark(1.2s);
+        }
+    }
+}
+
+.brand-mark {
+    max-width: 250px;
+    margin: 0 auto;
+    svg {
+        path {
+            &.cls-1 {
+                fill: @gold;
+                opacity: 1;
+                fill-opacity: 1 !important;
+            }
+            &.cls-2 {
+                fill: @goldLight;
+                opacity: 1;
+                fill-opacity: 1 !important;
+            }
+        }
+    }
+}
+
+.thumb-image {
+    opacity: 0;
+    transition: opacity 0.4s ease-in;
+    &.loaded {
+        opacity: 1;
+    }
+}
+
+
+
+/* navigation */
+
+.Header.Header--top {
+    min-height: 50px !important;
+    display: block !important;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: none;
+    .Header-inner.Header-inner--top {
+        &[data-nc-group="top"] {
+            display: flex !important;
+        }
+    }
+    &.menu-open {
+        background: none !important;
+        box-shadow: none !important;
+        * {
+            color: @gold !important;
+        }
+        .fa-times {
+            display: inline-block;
+        }
+        .fa-bars {
+            display: none;
+        }
+        .Header-branding {
+            opacity: 0 !important;
+        }
+    }
+    @keyframes spin {
+        from {
+            transform: rotateZ(0);
+        }
+        to {
+            transform: rotateZ(360deg);
+            opacity: 1;
+        }
+    }
+    &.transitioning {
+        * {
+            pointer-events: none;
+        }
+        svg {
+            animation: spin 0.3s infinite linear;
+        }
+    }
+    .Header-branding {
+        opacity: 0;
+        transition: opacity 0.4s ease-in-out;
+    }
+    transition:background-color 0.4s;
+    * {
+        color: @gold;
+    }
+    .Header-inner.Header-inner--top {
+        max-width: 100%;
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
+    &.scrolling {
+        background: #F2F2F2;
+        box-shadow: 0 2px 10px rgba(10, 10, 10, 0.1);
+        .Header-branding {
+            opacity: 1;
+        }
+        * {
+            color: hsl(45, 0%, 50%);
+        }
+    }
+    .fa-times {
+        display: none;
+    }
+}
+
+.sqs-edit-mode-active,
+.sqs-edit-mode {
+    .sqs-block,
+    p,
+    h1,
+    h2,
+    h3,
+    figure {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    path {
+        fill-opacity: 1 !important;
+    }
+}
+
+@keyframes iconDraw {
+    0% {
+        stroke-width: 6px;
+        fill-opacity: 0;
+        opacity: 1;
+    }
+    75% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-width: 6px;
+        fill-opacity: 0.7;
+        stroke-dashoffset: 0;
+    }
+}
+
+#quote {
+    border-bottom: 5px solid @gold;
+    background: hsl(0, 0%, 95%);
+}
+
+[id*="seafoam"] {
+    .Index-page-content {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    .Index-page-content {
+        min-height: 550px;
+        max-height: 77vh;
+        display: flex;
+        align-items: center;
+        .sqs-layout {
+            flex: 1 1 auto;
+        }
+    }
+    background:@seafoam;
+    * {
+        color: @gold !important;
+        text-shadow: 1px 1px 8px rgba(10, 10, 10, 0.1);
+    }
+    h2 {
+        transition: opacity 1.3s ease-in-out, transform 1.3s;
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    p,
+    figure,
+    h1,
+    h3 {
+        transition: opacity 1.3s 1.2s ease-in-out, transform 1.3s 1.2s;
+
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    svg {
+        path {
+            fill-opacity: 0;
+            stroke: @gold;
+            stroke-width: 7px;
+            stroke-dasharray: 2400;
+            stroke-dashoffset: 2400;
+        }
+    }
+    em {
+        font-size: 1.4em;
+    }
+    h2 {
+        font-size: 5vw;
+        @media screen and (max-width: 768px) {
+            font-size:2em;
+        }
+    }
+    &:nth-child(even) {
+        background: @royalBlue;
+    }
+    &[data-scrollmap-triggered-in="true"] {
+        p,
+        figure,
+        h2,
+        h3 {
+            opacity: 1;
+            transform: translateY(0);
+        } // svg
+        svg {
+            path {
+                animation: iconDraw 5s forwards;
+            }
+        }
+    }
+}
+
+#brand-money-shot {
+    background: @seafoam;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    .Index-page-content {
+        text-align: center;
+        flex: 1 1 auto;
+    }
+    * {
+        color: hsl(45, 100%, 90%);
+    }
+    h1 {
+        font-size: 2.15em;
+        margin-bottom: 0;
+    }
+}
+
+.Index-gallery-item-content-heading {
+    text-shadow: 1px 2px 12px rgba(10, 10, 10, 0.3);
+}
+
+.Index-gallery-item-content-body {
+    a {
+        background: #5eb5af;
+        padding: 0.25em 1em;
+    }
+}
+
+
+
+/* Contact Modal */
+
+.lightbox-handle.sqs-editable-button {
+    font-size: 1em !important;
+}
+
+.lightbox-content {
+    background: @seafoam !important;
+    * {
+        color: @gold !important;
+    }
+    input,
+    textarea {
+        background: @seafoamDark !important;
+        border-color: @goldLight !important;
+        color: @gold !important;
+    }
+}
+
+.button.sqs-system-button {
+    background: @gold !important;
+    color: @seafoam !important;
+}
+
+.sqs-edit-mode {
+    #main-menu-navigation {
+        position: static !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+}
+
+#main-menu-navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 100vh;
+    overflow-y: auto;
+    background: @seafoam;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, transform 0.2s;
+    z-index: 998;
+    display: flex;
+    align-items: center;
+    @media screen and (min-width: 641px) {
+        align-items:center;
+    }
+    @media screen and (max-width:640px) {
+        .sqs-block-code {
+            padding: 5px !important;
+        }
+    }
+    flex-wrap:wrap;
+    transform: scale(0.95);
+    .contact__item {
+        display: flex;
+        flex-wrap: wrap;
+
+        .contact__icon {
+            flex: 1 1 300px;
+            min-height: 100px;
+            @media screen and (max-width: 640px) {
+                min-height:100%;
+                flex: 1 1 20px;
+                svg {
+                    width: 30px;
+                }
+            }
+        }
+
+        .contact__link {
+            flex: 1 1 300px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @media screen and (max-width: 640px) {
+                flex:1 1 150px;
+                text-align: left;
+                justify-content: flex-start;
+            }
+        }
+    }
+    .Index-page-content {
+        flex: 1 1 auto;
+        transform: scale(0.9);
+        opacity: 0;
+        transition: opacity 0.4s 0.3s, transform 0.4s 0.3s;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        max-width: 100%;
+    }
+    .close-menu {
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+        z-index: 333;
+    }
+    * {
+        color: @gold;
+    }
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        .icon {
+            transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.4s, opacity 0.3s 0.4s;
+            flex: 0 1 15em;
+            opacity: 0;
+            &:nth-child(1) {
+                transform: translateX(150px);
+            }
+            &:nth-child(2) {
+                transform: translateX(-150px);
+            }
+        }
+    }
+    &.open {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+        .Index-page-content {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .social-icons {
+            .icon {
+                &:nth-child(1) {
+                    opacity: 1;
+                    transform: translateX(0px);
+                }
+                &:nth-child(2) {
+                    opacity: 1;
+                    transform: translateX(0px);
+                }
+            }
+        }
+    }
+    &.transition-out {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+}
+
+.Footer {
+    p {
+        font-size: 1em;
+        color: @gold;
+    }
+}
+
+@font-face {
+    font-family: "Geomanist";
+    src: url(https://static1.squarespace.com/static/572cfd201d07c088bf60349f/t/5aee6121aa4a9972fb1dcdc3/1525571874215/Geomanist-Regular.otf) format("opentype");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Geomanist";
+    src: url(https://static1.squarespace.com/static/572cfd201d07c088bf60349f/t/5aee612f575d1f65bdf0cb99/1525571887887/Geomanist-Bold.otf) format("opentype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Geomanist, italic";
+    src: url(https://static1.squarespace.com/static/572cfd201d07c088bf60349f/t/5aee7e2af950b76debe92a1a/1525579306571/Geomanist-Bold-Italic.otf) format("opentype");
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Geomanist";
+    src: url(https://static1.squarespace.com/static/572cfd201d07c088bf60349f/t/5aee7b3e0e2e72598b3900eb/1525578558146/Geomanist-Light.otf) format("opentype");
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Geomanist";
+    src: url(https://static1.squarespace.com/static/572cfd201d07c088bf60349f/t/5aee7fa0562fa793b4c50d8c/1525579680272/Geomanist-Ultra.otf) format("opentype");
+    font-weight: ultra;
+    font-style: normal;
+}
