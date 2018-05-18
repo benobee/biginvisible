@@ -27,4 +27,3 @@ Returns **[Object][4]** DOM Node
 [3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
 [4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-# biginvisible

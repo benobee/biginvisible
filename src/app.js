@@ -11,7 +11,7 @@ const App = {
      * events are bound to the controller when
      * elements are found within the DOM.
      */
-     
+
     registerControllers () {
         controller.add({
             name: "blog",

@@ -1,3 +1,8 @@
+/******************************/
+
+
+/*********** TWEAKS ***********/
+
 @gold: hsl(48, 98%, 59%);
 @goldLight: hsl(51, 98%, 65%);
 
@@ -6,10 +11,22 @@
 
 @royalBlue: hsl(237, 60%, 24%);
 
+
+/******************************/
+
+
+/* hide the template mobile nav */
+
 .Mobile-overlay,
 .Mobile-bar.Mobile-bar--top {
     display: none;
 }
+
+
+/******************************/
+
+
+/* Site loading aesthectics */
 
 .Site {
     .Index-page-content {
@@ -21,7 +38,15 @@
             opacity: 1;
         }
     }
+    position:relative;
+    overflow-x:hidden;
 }
+
+
+/******************************/
+
+
+/* Global Font assignments */
 
 h1 {
     font-family: "Geomanist" !important;
@@ -47,8 +72,33 @@ p {
 }
 
 figure {
-    font-family: "Geomanist, italic";
+    font-family: "Geomanist";
+    font-style: italic;
 }
+
+
+/******************************/
+
+
+/* fix image resizing bug */
+
+section[id*=gallery] {
+    max-height: 92vh;
+    height: 45vw;
+    min-height: 500px;
+    .Index-gallery-wrapper,
+    .Index-gallery-item {
+        max-height: 92vh;
+        height: 45vw;
+        min-height: 500px;
+    }
+}
+
+
+/******************************/
+
+
+/* Moible adjustments */
 
 @media screen and (max-width:640px) {
     #brand-money-shot {
@@ -94,6 +144,28 @@ figure {
     }
 }
 
+
+/******************************/
+
+
+/* Animations */
+
+@keyframes iconDraw {
+    0% {
+        stroke-width: 6px;
+        fill-opacity: 0;
+        opacity: 1;
+    }
+    75% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-width: 6px;
+        fill-opacity: 0.7;
+        stroke-dashoffset: 0;
+    }
+}
+
 @keyframes fadeInMark {
     from {
         opacity: 0;
@@ -117,6 +189,117 @@ figure {
     animation:fadeInOutMark 1.4s linear infinite alternate;
     animation-delay:@delay;
 }
+
+
+/******************************/
+
+
+/* Navigation */
+
+.Header.Header--top {
+    min-height: 50px !important;
+    display: block !important;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: none;
+    transition:transform 0.4s, opacity 0.2s, background-color 0.2s;
+    .Header-branding {
+        opacity: 0;
+    }
+    .Header-inner.Header-inner--top {
+        max-width: 100%;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        &[data-nc-group="top"] {
+            display: flex !important;
+        }
+    }
+    path {
+        fill: @gold;
+    }
+    .fa-times {
+        display: none;
+    }
+    @keyframes spin {
+        from {
+            transform: rotateZ(0);
+        }
+        to {
+            transform: rotateZ(360deg);
+            opacity: 1;
+        } 
+    }
+
+    // remove interaction, add animation
+    &.transitioning {
+        * {
+            pointer-events: none;
+        }
+        svg {
+            animation: spin 0.3s infinite linear;
+        }
+    }
+
+    // add backgrond color and logo left
+    &.scrolling{
+        background-color: #F2F2F2;
+        box-shadow: 0 2px 10px rgba(10, 10, 10, 0.1);
+        .Header-branding {
+            opacity: 1;
+        }
+        path {
+            fill: @seafoam;
+        }
+    }
+
+    // hide the nav on scroll down
+    &.scrolling-down {
+        //opacity: 0;
+        //transform: translateY(-54px);
+    }
+
+    // show the nav on scroll up
+    &.scrolling-up {
+        //opacity: 1;
+        //transform: translateY(0px);
+    }
+
+    /* 
+       change the color of the toggle
+       hide the logo left remove box shadow
+    */
+    &.menu-open {
+        background: none !important;
+        box-shadow: none !important;
+        transform: translateY(0px);
+        opacity:1;
+        path {
+            fill: @gold !important;
+        }
+        .fa-times {
+            display: inline-block;
+        }
+        .fa-bars {
+            display: none;
+        }
+        .Header-branding {
+            opacity: 0 !important;
+        }
+    }
+}
+
+
+/******************************/
+
+
+/******************************/
+
+
+/* Landing view */
 
 .brand-logo {
     max-width: 500px;
@@ -170,122 +353,44 @@ figure {
 }
 
 
+/******************************/
 
-/* navigation */
 
-.Header.Header--top {
-    min-height: 50px !important;
-    display: block !important;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 9999;
-    background: none;
-    .Header-inner.Header-inner--top {
-        &[data-nc-group="top"] {
-            display: flex !important;
-        }
+/* Home Page Index */
+
+// landing view
+#brand-money-shot {
+    background: @seafoam;
+    min-height: 550px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    .Index-page-content {
+        text-align: center;
+        flex: 1 1 auto;
     }
-    &.menu-open {
-        background: none !important;
-        box-shadow: none !important;
-        * {
-            color: @gold !important;
-        }
-        .fa-times {
-            display: inline-block;
-        }
-        .fa-bars {
-            display: none;
-        }
-        .Header-branding {
-            opacity: 0 !important;
-        }
-    }
-    @keyframes spin {
-        from {
-            transform: rotateZ(0);
-        }
-        to {
-            transform: rotateZ(360deg);
-            opacity: 1;
-        }
-    }
-    &.transitioning {
-        * {
-            pointer-events: none;
-        }
-        svg {
-            animation: spin 0.3s infinite linear;
-        }
-    }
-    .Header-branding {
-        opacity: 0;
-        transition: opacity 0.4s ease-in-out;
-    }
-    transition:background-color 0.4s;
     * {
-        color: @gold;
+        color: hsl(45, 100%, 90%);
     }
-    .Header-inner.Header-inner--top {
-        max-width: 100%;
-        padding-top: 1em;
-        padding-bottom: 1em;
-    }
-    &.scrolling {
-        background: #F2F2F2;
-        box-shadow: 0 2px 10px rgba(10, 10, 10, 0.1);
-        .Header-branding {
-            opacity: 1;
-        }
-        * {
-            color: hsl(45, 0%, 50%);
-        }
-    }
-    .fa-times {
-        display: none;
+    h1 {
+        font-size: 2.15em;
+        margin-bottom: 0;
     }
 }
 
-.sqs-edit-mode-active,
-.sqs-edit-mode {
-    .sqs-block,
-    p,
-    h1,
-    h2,
-    h3,
-    figure {
-        opacity: 1 !important;
-        transform: none !important;
-    }
-    path {
-        fill-opacity: 1 !important;
-    }
+// gallery pages
+.Index-gallery-item-content-heading {
+    text-shadow: 1px 2px 12px rgba(10, 10, 10, 0.3);
 }
 
-@keyframes iconDraw {
-    0% {
-        stroke-width: 6px;
-        fill-opacity: 0;
-        opacity: 1;
-    }
-    75% {
-        stroke-dashoffset: 0;
-    }
-    100% {
-        stroke-width: 6px;
-        fill-opacity: 0.7;
-        stroke-dashoffset: 0;
-    }
-}
-
+// quote page
 #quote {
     border-bottom: 5px solid @gold;
     background: hsl(0, 0%, 95%);
 }
 
+// any page with seafoam in the title
 [id*="seafoam"] {
     .Index-page-content {
         padding-top: 0;
@@ -333,8 +438,11 @@ figure {
     }
     h2 {
         font-size: 5vw;
+        @media screen and (min-width: 1200px) {
+            font-size:4em;
+        }
         @media screen and (max-width: 768px) {
-            font-size:2em;
+            font-size: 2em;
         }
     }
     &:nth-child(even) {
@@ -356,69 +464,11 @@ figure {
     }
 }
 
-#brand-money-shot {
-    background: @seafoam;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    .Index-page-content {
-        text-align: center;
-        flex: 1 1 auto;
-    }
-    * {
-        color: hsl(45, 100%, 90%);
-    }
-    h1 {
-        font-size: 2.15em;
-        margin-bottom: 0;
-    }
-}
 
-.Index-gallery-item-content-heading {
-    text-shadow: 1px 2px 12px rgba(10, 10, 10, 0.3);
-}
-
-.Index-gallery-item-content-body {
-    a {
-        background: #5eb5af;
-        padding: 0.25em 1em;
-    }
-}
+/******************************/
 
 
-
-/* Contact Modal */
-
-.lightbox-handle.sqs-editable-button {
-    font-size: 1em !important;
-}
-
-.lightbox-content {
-    background: @seafoam !important;
-    * {
-        color: @gold !important;
-    }
-    input,
-    textarea {
-        background: @seafoamDark !important;
-        border-color: @goldLight !important;
-        color: @gold !important;
-    }
-}
-
-.button.sqs-system-button {
-    background: @gold !important;
-    color: @seafoam !important;
-}
-
-.sqs-edit-mode {
-    #main-menu-navigation {
-        position: static !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
-}
+/* Navigation */
 
 #main-menu-navigation {
     position: fixed;
@@ -449,7 +499,6 @@ figure {
     .contact__item {
         display: flex;
         flex-wrap: wrap;
-
         .contact__icon {
             flex: 1 1 300px;
             min-height: 100px;
@@ -461,7 +510,6 @@ figure {
                 }
             }
         }
-
         .contact__link {
             flex: 1 1 300px;
             text-align: center;
@@ -536,12 +584,51 @@ figure {
     }
 }
 
+
+/*******************************/
+
+
+/* Footer */
+
 .Footer {
     p {
         font-size: 1em;
         color: @gold;
     }
 }
+
+
+/******************************/
+
+
+/* SQS Editor In Use Styles */
+
+.sqs-edit-mode-active,
+.sqs-edit-mode {
+    #main-menu-navigation {
+        position: static !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    .sqs-block,
+    p,
+    h1,
+    h2,
+    h3,
+    figure {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    path {
+        fill-opacity: 1 !important;
+    }
+}
+
+
+/******************************/
+
+
+/* Custom Fonts */
 
 @font-face {
     font-family: "Geomanist";
