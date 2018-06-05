@@ -1,7 +1,35 @@
+<<<<<<< HEAD
+=======
+/******************************/
+
+
+/*********** TWEAKS ***********/
+
+@gold: hsl(48, 98%, 59%);
+@goldLight: hsl(51, 98%, 65%);
+
+@seafoam: hsl(170, 46%, 48%);
+@seafoamDark: hsl(170, 50%, 48%);
+
+@royalBlue: hsl(237, 60%, 24%);
+
+
+/******************************/
+
+
+/* hide the template mobile nav */
+
+>>>>>>> 11a22318582f8d410d600c5e3bd60cddb7277f13
 .Mobile-overlay,
 .Mobile-bar.Mobile-bar--top {
   display: none;
 }
+
+
+/******************************/
+
+
+/* Site loading aesthectics */
 
 .Site {
   .Index-page-content {
@@ -12,6 +40,7 @@
     .Index-page-content {
       opacity: 1;
     }
+<<<<<<< HEAD
   }
 }
 
@@ -19,6 +48,21 @@
   h1 {
     font-family: "Geomanist";
     font-weight: bold;
+=======
+    position:relative;
+    overflow-x:hidden;
+}
+
+
+/******************************/
+
+
+/* Global Font assignments */
+
+h1 {
+    font-family: "Geomanist" !important;
+    font-weight: bold !important;
+>>>>>>> 11a22318582f8d410d600c5e3bd60cddb7277f13
     letter-spacing: 1px;
   }
   h2,
@@ -33,11 +77,43 @@
     font-weight: 300;
     font-size: 1.2em;
     line-height: 1.5em;
+<<<<<<< HEAD
   }
   figure {
     font-family: "Geomanist, italic";
   }
+=======
 }
+
+figure {
+    font-family: "Geomanist";
+    font-style: italic;
+>>>>>>> 11a22318582f8d410d600c5e3bd60cddb7277f13
+}
+
+
+/******************************/
+
+
+/* fix image resizing bug */
+
+section[id*=gallery] {
+    max-height: 92vh;
+    height: 45vw;
+    min-height: 500px;
+    .Index-gallery-wrapper,
+    .Index-gallery-item {
+        max-height: 92vh;
+        height: 45vw;
+        min-height: 500px;
+    }
+}
+
+
+/******************************/
+
+
+/* Moible adjustments */
 
 @media screen and (max-width:640px) {
   #brand-money-shot {
@@ -83,6 +159,28 @@
   }
 }
 
+
+/******************************/
+
+
+/* Animations */
+
+@keyframes iconDraw {
+    0% {
+        stroke-width: 6px;
+        fill-opacity: 0;
+        opacity: 1;
+    }
+    75% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-width: 6px;
+        fill-opacity: 0.7;
+        stroke-dashoffset: 0;
+    }
+}
+
 @keyframes fadeInMark {
   from {
     opacity: 0;
@@ -106,6 +204,117 @@
   animation:fadeInOutMark 1.4s linear infinite alternate;
   animation-delay:@delay;
 }
+
+
+/******************************/
+
+
+/* Navigation */
+
+.Header.Header--top {
+    min-height: 50px !important;
+    display: block !important;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: none;
+    transition:transform 0.4s, opacity 0.2s, background-color 0.2s;
+    .Header-branding {
+        opacity: 0;
+    }
+    .Header-inner.Header-inner--top {
+        max-width: 100%;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        &[data-nc-group="top"] {
+            display: flex !important;
+        }
+    }
+    path {
+        fill: @gold;
+    }
+    .fa-times {
+        display: none;
+    }
+    @keyframes spin {
+        from {
+            transform: rotateZ(0);
+        }
+        to {
+            transform: rotateZ(360deg);
+            opacity: 1;
+        } 
+    }
+
+    // remove interaction, add animation
+    &.transitioning {
+        * {
+            pointer-events: none;
+        }
+        svg {
+            animation: spin 0.3s infinite linear;
+        }
+    }
+
+    // add backgrond color and logo left
+    &.scrolling{
+        background-color: #F2F2F2;
+        box-shadow: 0 2px 10px rgba(10, 10, 10, 0.1);
+        .Header-branding {
+            opacity: 1;
+        }
+        path {
+            fill: @seafoam;
+        }
+    }
+
+    // hide the nav on scroll down
+    &.scrolling-down {
+        //opacity: 0;
+        //transform: translateY(-54px);
+    }
+
+    // show the nav on scroll up
+    &.scrolling-up {
+        //opacity: 1;
+        //transform: translateY(0px);
+    }
+
+    /* 
+       change the color of the toggle
+       hide the logo left remove box shadow
+    */
+    &.menu-open {
+        background: none !important;
+        box-shadow: none !important;
+        transform: translateY(0px);
+        opacity:1;
+        path {
+            fill: @gold !important;
+        }
+        .fa-times {
+            display: inline-block;
+        }
+        .fa-bars {
+            display: none;
+        }
+        .Header-branding {
+            opacity: 0 !important;
+        }
+    }
+}
+
+
+/******************************/
+
+
+/******************************/
+
+
+/* Landing view */
 
 .brand-logo {
   max-width: 500px;
@@ -221,7 +430,9 @@ section[id*=seafoam] {
 }
 
 
+/******************************/
 
+<<<<<<< HEAD
 
 
 
@@ -347,11 +558,49 @@ section[id*=seafoam] {
 
 #collection-5ae7564d6d2a739e9807187c {
   #quote {
+=======
+
+/* Home Page Index */
+
+// landing view
+#brand-money-shot {
+    background: @seafoam;
+    min-height: 550px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    .Index-page-content {
+        text-align: center;
+        flex: 1 1 auto;
+    }
+    * {
+        color: hsl(45, 100%, 90%);
+    }
+    h1 {
+        font-size: 2.15em;
+        margin-bottom: 0;
+    }
+}
+
+// gallery pages
+.Index-gallery-item-content-heading {
+    text-shadow: 1px 2px 12px rgba(10, 10, 10, 0.3);
+}
+
+// quote page
+#quote {
+>>>>>>> 11a22318582f8d410d600c5e3bd60cddb7277f13
     border-bottom: 5px solid @gold;
     background: hsl(0, 0%, 95%);
   }
 
+<<<<<<< HEAD
   [id*="seafoam"] {
+=======
+// any page with seafoam in the title
+[id*="seafoam"] {
+>>>>>>> 11a22318582f8d410d600c5e3bd60cddb7277f13
     .Index-page-content {
       padding-top: 0;
       padding-bottom: 0;
@@ -397,10 +646,20 @@ section[id*=seafoam] {
       font-size: 1.4em;
     }
     h2 {
+<<<<<<< HEAD
       font-size: 4.2vw;
       @media screen and (max-width: 768px) {
         font-size:2em;
       }
+=======
+        font-size: 5vw;
+        @media screen and (min-width: 1200px) {
+            font-size:4em;
+        }
+        @media screen and (max-width: 768px) {
+            font-size: 2em;
+        }
+>>>>>>> 11a22318582f8d410d600c5e3bd60cddb7277f13
     }
     &:nth-child(even) {
       background: @royalBlue;
@@ -421,6 +680,7 @@ section[id*=seafoam] {
     }
   }
 
+<<<<<<< HEAD
   #brand-money-shot {
     background: @seafoam;
     height: 100vh;
@@ -493,6 +753,13 @@ section[id*=seafoam] {
     visibility: visible !important;
   }
 }
+=======
+
+/******************************/
+
+
+/* Navigation */
+>>>>>>> 11a22318582f8d410d600c5e3bd60cddb7277f13
 
 #main-menu-navigation {
   position: fixed;
@@ -597,6 +864,7 @@ section[id*=seafoam] {
           opacity: 1;
           transform: translateX(0px);
         }
+<<<<<<< HEAD
         &:nth-child(2) {
           opacity: 1;
           transform: translateX(0px);
@@ -622,6 +890,37 @@ section[id*=seafoam] {
     margin: 0 auto;
     svg {
       font-size: 4em;
+=======
+    }
+    flex-wrap:wrap;
+    transform: scale(0.95);
+    .contact__item {
+        display: flex;
+        flex-wrap: wrap;
+        .contact__icon {
+            flex: 1 1 300px;
+            min-height: 100px;
+            @media screen and (max-width: 640px) {
+                min-height:100%;
+                flex: 1 1 20px;
+                svg {
+                    width: 30px;
+                }
+            }
+        }
+        .contact__link {
+            flex: 1 1 300px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @media screen and (max-width: 640px) {
+                flex:1 1 150px;
+                text-align: left;
+                justify-content: flex-start;
+            }
+        }
+>>>>>>> 11a22318582f8d410d600c5e3bd60cddb7277f13
     }
   }
   #block-yui_3_17_2_1_1525719819087_39574 {
@@ -644,15 +943,97 @@ section[id*=seafoam] {
     .icon {
       background: @royalBlue;
     }
+<<<<<<< HEAD
     path {
       fill: @gold;
+=======
+}
+
+
+/*******************************/
+
+
+/* Footer */
+
+.Footer {
+    p {
+        font-size: 1em;
+        color: @gold;
+>>>>>>> 11a22318582f8d410d600c5e3bd60cddb7277f13
     }
   }
 }
 
+<<<<<<< HEAD
 .Footer {
   p {
     font-size: 1em;
     color: @gold;
   }
+=======
+
+/******************************/
+
+
+/* SQS Editor In Use Styles */
+
+.sqs-edit-mode-active,
+.sqs-edit-mode {
+    #main-menu-navigation {
+        position: static !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    .sqs-block,
+    p,
+    h1,
+    h2,
+    h3,
+    figure {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    path {
+        fill-opacity: 1 !important;
+    }
+}
+
+
+/******************************/
+
+
+/* Custom Fonts */
+
+@font-face {
+    font-family: "Geomanist";
+    src: url(https://static1.squarespace.com/static/572cfd201d07c088bf60349f/t/5aee6121aa4a9972fb1dcdc3/1525571874215/Geomanist-Regular.otf) format("opentype");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Geomanist";
+    src: url(https://static1.squarespace.com/static/572cfd201d07c088bf60349f/t/5aee612f575d1f65bdf0cb99/1525571887887/Geomanist-Bold.otf) format("opentype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Geomanist, italic";
+    src: url(https://static1.squarespace.com/static/572cfd201d07c088bf60349f/t/5aee7e2af950b76debe92a1a/1525579306571/Geomanist-Bold-Italic.otf) format("opentype");
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Geomanist";
+    src: url(https://static1.squarespace.com/static/572cfd201d07c088bf60349f/t/5aee7b3e0e2e72598b3900eb/1525578558146/Geomanist-Light.otf) format("opentype");
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Geomanist";
+    src: url(https://static1.squarespace.com/static/572cfd201d07c088bf60349f/t/5aee7fa0562fa793b4c50d8c/1525579680272/Geomanist-Ultra.otf) format("opentype");
+    font-weight: ultra;
+    font-style: normal;
+>>>>>>> 11a22318582f8d410d600c5e3bd60cddb7277f13
 }
