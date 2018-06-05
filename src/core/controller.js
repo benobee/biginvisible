@@ -1,4 +1,5 @@
 import PubSub from "./pubsub";
+import DOM from "../modules/dom";
 
 const events = new PubSub();
 
@@ -7,22 +8,16 @@ class Controller {
         this.topics = {};
         this.on = events.on;
         this.emit = events.emit;
-        this.events = [];
-        this.add = this.add;
-    }
-
-    add (config) {
-        this.events.push(config);
     }
 
     /**
      * Tests whether the node is active in the DOM
      * @param  {String} query query selector
-     * @returns {Object}       DOM Node
+     * @return {Object}       DOM Node
      */
 
     elementIsActive (query) {
-        const el = document.querySelector(query);
+        const el = DOM.findOne(query);
 
         if (!el) {
             return false;
@@ -30,11 +25,13 @@ class Controller {
         return el;
     }
 
-    watch () {
-        this.events.forEach((event) => {
+    watch (array) {
+        array.forEach((event) => {
             const el = this.elementIsActive(event.el);
 
-            this.emit(event.name, el);
+            if (el) {
+                 this.emit(event.name, el);
+             }
         });
     }
 }
