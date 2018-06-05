@@ -8,7 +8,7 @@ const api = () => {
 	});
 	controller.on("navbar", (el) => {
 		scrollControl.init(el);
-		console.log("navbar", el);
+		console.log("navbar el", el);
 	});
 };
 
