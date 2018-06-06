@@ -30,8 +30,8 @@ class Controller {
             const el = this.elementIsActive(event.el);
 
             if (el) {
-                 this.emit(event.name, el);
-             }
+                this.emit(event.name, el);
+            }
         });
     }
 }
