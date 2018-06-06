@@ -4,7 +4,7 @@ import scrollControl from "../modules/scrollControl";
 const api = () => {
 	controller.on("blog", (el) => {
 		scrollControl.init(el);
-		console.log("blog page", el);
+		console.log("blog", el);
 	});
 	controller.on("navbar", (el) => {
 		scrollControl.init(el);
