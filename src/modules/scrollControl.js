@@ -5,7 +5,6 @@ import Scrollmap from "scrollmap";
  * @type {Object}
  */
 const scrollControl = {
-
   init (navbar) {
     const body = document.querySelector("body");
     const thresholdTop = -200;
@@ -25,11 +24,9 @@ const scrollControl = {
       }
     });
   },
-
   // left: 37, up: 38, right: 39, down: 40,
   // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
   keys: { 37: 1, 38: 1, 39: 1, 40: 1 },
-
   preventDefault (e) {
     e = e || window.event;
     if (e.preventDefault) {
@@ -37,7 +34,6 @@ const scrollControl = {
     }
     e.returnValue = false;
   },
-
   preventDefaultForScrollKeys (e) {
     let isScrollKey = true;
 
@@ -48,7 +44,6 @@ const scrollControl = {
 
     return isScrollKey;
   },
-
   disableScroll () {
     const self = this;
 
@@ -60,7 +55,6 @@ const scrollControl = {
     window.ontouchmove = self.preventDefault; // mobile
     document.onkeydown = self.preventDefaultForScrollKeys;
   },
-
   enableScroll () {
     const self = this;
 
