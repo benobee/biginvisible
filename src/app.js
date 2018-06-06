@@ -25,6 +25,7 @@ const App = {
   }
 };
 
+// on dom content load
 document.addEventListener("DOMContentLoaded", () => {
   App.init();
 });
