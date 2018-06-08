@@ -1,0 +1,43 @@
+/******************************/
+
+/* Animations */
+
+@keyframes iconDraw {
+  0% {
+    stroke-width: 6px;
+    fill-opacity: 0;
+    opacity: 1;
+  }
+  75% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-width: 6px;
+    fill-opacity: 0.7;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fadeInMark {
+  from {
+    opacity: 0;
+    fill-opacity: 0;
+  }
+  to {
+    opacity: 1;
+    fill-opacity: 1;
+  }
+}
+
+.transition-mark(@delay) {
+  @keyframes fadeInOutMark {
+    from {
+      fill-opacity: 0.8;
+    }
+    to {
+      fill-opacity: 0.2;
+    }
+  }
+  animation: fadeInOutMark 1.4s linear infinite alternate;
+  animation-delay: @delay;
+}

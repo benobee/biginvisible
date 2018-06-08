@@ -4,6 +4,7 @@
 
 -   [registerControllers][1]
 -   [elementIsActive][2]
+-   [scrollControl][3]
 
 ## registerControllers
 
@@ -16,14 +17,22 @@ Tests whether the node is active in the DOM
 
 **Parameters**
 
--   `query` **[String][3]** query selector
+-   `query` **[String][4]** query selector
 
-Returns **[Object][4]** DOM Node
+Returns **[Object][5]** DOM Node
+
+## scrollControl
+
+[scroll description]
+
+Type: [Object][5]
 
 [1]: #registercontrollers
 
 [2]: #elementisactive
 
-[3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[3]: #scrollcontrol
 
-[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[5]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
