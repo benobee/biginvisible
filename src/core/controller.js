@@ -3,6 +3,10 @@ import DOM from "../modules/dom";
 
 const events = new PubSub();
 
+/**
+ * Bind events to active DOM elements
+ * through publish / subscribe
+ */
 class Controller {
     constructor () {
         this.topics = {};
@@ -13,9 +17,8 @@ class Controller {
     /**
      * Tests whether the node is active in the DOM
      * @param  {String} query query selector
-     * @return {Object}       DOM Node
+     * @returns {HTMLElement}       DOM Node
      */
-
     elementIsActive (query) {
         const el = DOM.findOne(query);
 
@@ -25,6 +28,10 @@ class Controller {
         return el;
     }
 
+    /**
+     * emit event when the DOM element is active
+     * @param {Array} array list of nodes
+     */
     watch (array) {
         array.forEach((event) => {
             const el = this.elementIsActive(event.el);

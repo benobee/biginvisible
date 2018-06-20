@@ -1,0 +1,169 @@
+/******************************/
+
+/* Home Page Index */
+.homepage{
+  .Header-branding {
+    opacity: 0;
+  }
+  .Header.Header--top {
+    background:none;
+    path {
+      fill: @gold;
+    } 
+  }
+}
+
+/* collection id wrapper */
+#collection-5ae7564d6d2a739e9807187c{
+
+// landing view
+#brand-money-shot {
+    background: @seafoam;
+    min-height: 550px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    .Index-page-content {
+      text-align: center;
+      flex: 1 1 auto;
+    }
+    * {
+      color: hsl(45, 100%, 90%);
+    }
+    h1 {
+      font-size: 2.15em;
+      margin-bottom: 0;
+    }
+  }
+  
+  // gallery pages
+  .Index-gallery-item-content-heading {
+    text-shadow: 1px 2px 12px rgba(10, 10, 10, 0.3);
+  }
+  
+  // quote page
+  #quote {
+    border-bottom: 5px solid @gold;
+    background: hsl(0, 0%, 95%);
+  }
+  
+  // who we are
+  #who-we-are {
+    h3 {
+      font-family: "Geomanist Med" !important;
+    }
+    .icon {
+      background: @royalBlue;
+      height: 150px;
+      max-width: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin: 0 auto;
+      svg {
+        font-size: 4em;
+      }
+    }
+    #block-yui_3_17_2_1_1525719819087_39574 {
+      .icon {
+        background: @gold;
+      }
+      path {
+        fill: @royalBlue;
+      }
+    }
+    #block-yui_3_17_2_1_1525719819087_40857 {
+      .icon {
+        background: @seafoam;
+      }
+      path {
+        fill: @gold;
+      }
+    }
+    #block-yui_3_17_2_1_1525719819087_42526 {
+      .icon {
+        background: @royalBlue;
+      }
+      path {
+        fill: @gold;
+      }
+    }
+  }
+  
+  // any page with seafoam in the title
+  [id*="seafoam"] {
+    .Index-page-content {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    .Index-page-content {
+      min-height: 550px;
+      max-height: 77vh;
+      display: flex;
+      align-items: center;
+      .sqs-layout {
+        flex: 1 1 auto;
+      }
+    }
+    background: @seafoam;
+    * {
+      color: @gold !important;
+      text-shadow: 1px 1px 8px rgba(10, 10, 10, 0.1);
+    }
+    h2 {
+      transition: opacity 1.3s ease-in-out, transform 1.3s;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    p,
+    figure,
+    h1,
+    h3 {
+      transition: opacity 1.3s 1.2s ease-in-out, transform 1.3s 1.2s;
+      font-family: "Geomanist Med" !important;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    svg {
+      path {
+        fill-opacity: 0;
+        stroke: @gold;
+        stroke-width: 7px;
+        stroke-dasharray: 2400;
+        stroke-dashoffset: 2400;
+      }
+    }
+    em {
+      font-size: 1.4em;
+    }
+    h2 {
+      font-size: 5vw;
+      @media screen and (min-width: 1200px) {
+        font-size: 4em;
+      }
+      @media screen and (max-width: 768px) {
+        font-size: 2em;
+      }
+    }
+    &:nth-child(even) {
+      background: @royalBlue;
+    }
+    &[data-scrollmap-triggered-in="true"] {
+      p,
+      figure,
+      h2,
+      h3 {
+        opacity: 1;
+        transform: translateY(0);
+      } // svg
+      svg {
+        path {
+          animation: iconDraw 5s forwards;
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,52 @@
+/* Logos */
+
+.brand-logo {
+  max-width: 500px;
+  margin: 0 auto;
+  svg path {
+    fill: hsl(45, 100%, 90%);
+    &.cls-7 {
+      opacity: 0.6;
+      .transition-mark(0s);
+    }
+    &.cls-8 {
+      opacity: 0.2;
+      .transition-mark(0.4s);
+    }
+    &.cls-9 {
+      opacity: 0.1;
+      .transition-mark(0.8s);
+    }
+    &.cls-10 {
+      opacity: 0.05;
+      .transition-mark(1.2s);
+    }
+  }
+}
+
+.brand-mark {
+  max-width: 250px;
+  margin: 0 auto;
+  svg {
+    path {
+      &.cls-1 {
+        fill: @gold;
+        opacity: 1;
+        fill-opacity: 1 !important;
+      }
+      &.cls-2 {
+        fill: @goldLight;
+        opacity: 1;
+        fill-opacity: 1 !important;
+      }
+    }
+  }
+}
+
+.thumb-image {
+  opacity: 0;
+  transition: opacity 0.4s ease-in;
+  &.loaded {
+    opacity: 1;
+  }
+}

@@ -29,32 +29,34 @@
 
 /* Global Font assignments */
 
-h1 {
-  font-family: "Geomanist" !important;
-  font-weight: bold !important;
-  letter-spacing: 1px;
-}
+.Site {
+  h1 {
+    font-family: "Geomanist" !important;
+    font-weight: bold !important;
+    letter-spacing: 1px;
+  }
 
-h2,
-h3,
-a,
-div,
-input {
-  font-family: "Geomanist" !important;
-  font-weight: bold !important;
-  letter-spacing: 0;
-}
+  h2,
+  h3,
+  a,
+  div,
+  input {
+    font-family: "Geomanist" !important;
+    font-weight: bold !important;
+    letter-spacing: 0;
+  }
 
-p {
-  font-family: "Geomanist" !important;
-  font-weight: 300 !important;
-  font-size: 1.2em;
-  line-height: 1.5em;
-}
+  p {
+    font-family: "Geomanist" !important;
+    font-weight: 300 !important;
+    font-size: 1.2em;
+    line-height: 1.5em;
+  }
 
-figure {
-  font-family: "Geomanist";
-  font-style: italic;
+  figure {
+    font-family: "Geomanist";
+    font-style: italic;
+  }
 }
 
 /******************************/
@@ -70,334 +72,6 @@ section[id*="gallery"] {
     max-height: 92vh;
     height: 45vw;
     min-height: 500px;
-  }
-}
-
-/******************************/
-
-/* Landing view */
-
-.brand-logo {
-  max-width: 500px;
-  margin: 0 auto;
-  svg path {
-    fill: hsl(45, 100%, 90%);
-    &.cls-7 {
-      opacity: 0.6;
-      .transition-mark(0s);
-    }
-    &.cls-8 {
-      opacity: 0.2;
-      .transition-mark(0.4s);
-    }
-    &.cls-9 {
-      opacity: 0.1;
-      .transition-mark(0.8s);
-    }
-    &.cls-10 {
-      opacity: 0.05;
-      .transition-mark(1.2s);
-    }
-  }
-}
-
-.brand-mark {
-  max-width: 250px;
-  margin: 0 auto;
-  svg {
-    path {
-      &.cls-1 {
-        fill: @gold;
-        opacity: 1;
-        fill-opacity: 1 !important;
-      }
-      &.cls-2 {
-        fill: @goldLight;
-        opacity: 1;
-        fill-opacity: 1 !important;
-      }
-    }
-  }
-}
-
-.thumb-image {
-  opacity: 0;
-  transition: opacity 0.4s ease-in;
-  &.loaded {
-    opacity: 1;
-  }
-}
-
-/******************************/
-
-/* Home Page Index */
-
-// landing view
-#brand-money-shot {
-  background: @seafoam;
-  min-height: 550px;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  .Index-page-content {
-    text-align: center;
-    flex: 1 1 auto;
-  }
-  * {
-    color: hsl(45, 100%, 90%);
-  }
-  h1 {
-    font-size: 2.15em;
-    margin-bottom: 0;
-  }
-}
-
-// gallery pages
-.Index-gallery-item-content-heading {
-  text-shadow: 1px 2px 12px rgba(10, 10, 10, 0.3);
-}
-
-// quote page
-#quote {
-  border-bottom: 5px solid @gold;
-  background: hsl(0, 0%, 95%);
-}
-
-// who we are
-#who-we-are {
-  h3 {
-    font-family: "Geomanist Med" !important;
-  }
-  .icon {
-    background: @royalBlue;
-    height: 150px;
-    max-width: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    margin: 0 auto;
-    svg {
-      font-size: 4em;
-    }
-  }
-  #block-yui_3_17_2_1_1525719819087_39574 {
-    .icon {
-      background: @gold;
-    }
-    path {
-      fill: @royalBlue;
-    }
-  }
-  #block-yui_3_17_2_1_1525719819087_40857 {
-    .icon {
-      background: @seafoam;
-    }
-    path {
-      fill: @gold;
-    }
-  }
-  #block-yui_3_17_2_1_1525719819087_42526 {
-    .icon {
-      background: @royalBlue;
-    }
-    path {
-      fill: @gold;
-    }
-  }
-}
-
-// any page with seafoam in the title
-[id*="seafoam"] {
-  .Index-page-content {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-  .Index-page-content {
-    min-height: 550px;
-    max-height: 77vh;
-    display: flex;
-    align-items: center;
-    .sqs-layout {
-      flex: 1 1 auto;
-    }
-  }
-  background: @seafoam;
-  * {
-    color: @gold !important;
-    text-shadow: 1px 1px 8px rgba(10, 10, 10, 0.1);
-  }
-  h2 {
-    transition: opacity 1.3s ease-in-out, transform 1.3s;
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  p,
-  figure,
-  h1,
-  h3 {
-    transition: opacity 1.3s 1.2s ease-in-out, transform 1.3s 1.2s;
-    font-family: "Geomanist Med" !important;
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  svg {
-    path {
-      fill-opacity: 0;
-      stroke: @gold;
-      stroke-width: 7px;
-      stroke-dasharray: 2400;
-      stroke-dashoffset: 2400;
-    }
-  }
-  em {
-    font-size: 1.4em;
-  }
-  h2 {
-    font-size: 5vw;
-    @media screen and (min-width: 1200px) {
-      font-size: 4em;
-    }
-    @media screen and (max-width: 768px) {
-      font-size: 2em;
-    }
-  }
-  &:nth-child(even) {
-    background: @royalBlue;
-  }
-  &[data-scrollmap-triggered-in="true"] {
-    p,
-    figure,
-    h2,
-    h3 {
-      opacity: 1;
-      transform: translateY(0);
-    } // svg
-    svg {
-      path {
-        animation: iconDraw 5s forwards;
-      }
-    }
-  }
-}
-
-/******************************/
-
-/* Navigation */
-
-#main-menu-navigation {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  min-height: 100vh;
-  overflow-y: auto;
-  background: @seafoam;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s, transform 0.2s;
-  z-index: 998;
-  display: flex;
-  align-items: center;
-  @media screen and (min-width: 641px) {
-    align-items: center;
-  }
-  @media screen and (max-width: 640px) {
-    .sqs-block-code {
-      padding: 5px !important;
-    }
-  }
-  flex-wrap: wrap;
-  transform: scale(0.95);
-  .contact__item {
-    display: flex;
-    flex-wrap: wrap;
-    .contact__icon {
-      flex: 1 1 300px;
-      min-height: 100px;
-      @media screen and (max-width: 640px) {
-        min-height: 100%;
-        flex: 1 1 20px;
-        svg {
-          width: 30px;
-        }
-      }
-    }
-    .contact__link {
-      flex: 1 1 300px;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      @media screen and (max-width: 640px) {
-        flex: 1 1 150px;
-        text-align: left;
-        justify-content: flex-start;
-      }
-    }
-  }
-  .Index-page-content {
-    flex: 1 1 auto;
-    transform: scale(0.9);
-    opacity: 0;
-    transition: opacity 0.4s 0.3s, transform 0.4s 0.3s;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    max-width: 100%;
-  }
-  .close-menu {
-    position: absolute;
-    top: 0;
-    right: 0;
-    cursor: pointer;
-    z-index: 333;
-  }
-  * {
-    color: @gold;
-  }
-  .social-icons {
-    display: flex;
-    justify-content: center;
-    .icon {
-      transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.4s,
-        opacity 0.3s 0.4s;
-      flex: 0 1 15em;
-      opacity: 0;
-      &:nth-child(1) {
-        transform: translateX(150px);
-      }
-      &:nth-child(2) {
-        transform: translateX(-150px);
-      }
-    }
-  }
-  &.open {
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1);
-    .Index-page-content {
-      opacity: 1;
-      transform: scale(1);
-    }
-    .social-icons {
-      .icon {
-        &:nth-child(1) {
-          opacity: 1;
-          transform: translateX(0px);
-        }
-        &:nth-child(2) {
-          opacity: 1;
-          transform: translateX(0px);
-        }
-      }
-    }
-  }
-  &.transition-out {
-    opacity: 0;
-    transform: scale(0.8);
   }
 }
 
@@ -435,4 +109,8 @@ section[id*="gallery"] {
   path {
     fill-opacity: 1 !important;
   }
+}
+
+#Big-navigation {
+  display: none;
 }

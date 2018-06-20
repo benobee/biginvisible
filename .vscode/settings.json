@@ -1,0 +1,16 @@
+{
+  "deploy": {
+    "targets": [
+      {
+        "type": "sftp",
+        "name": "Big Invisible SFTP",
+        "description": "Squarespace SFTP folder",
+        "dir": "/biginvisible/",
+        "host": "dev.squarespace.com",
+        "port": 2030,
+        "user": "ben@biginvisible.com",
+        "password": "tremont32!"
+      }
+    ]
+  }
+}

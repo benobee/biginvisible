@@ -12,15 +12,15 @@
         "Flickity": true,
         "Draggable": true,
         "Isotope": true,
-        "ga":true,
-        "hljs":true,
-        "jQuery":true,
-        "muut":true,
-        "StripeCheckout":true,
+        "ga": true,
+        "hljs": true,
+        "jQuery": true,
+        "muut": true,
+        "StripeCheckout": true,
         "Localize": true,
         "Modernizr": true,
         "google": true,
-        "require":true,
+        "require": true,
 
         // Squarespace specific
         "Y": true,
@@ -51,7 +51,7 @@
             0,
             1
         ],
-        "consistent-return": 2,
+        "consistent-return": 1,
         "curly": 2,
         "default-case": 2,
         "dot-notation": 2,
@@ -295,7 +295,7 @@
         "sort-vars": 0,
         "keyword-spacing": [
             2,
-           {
+            {
                 "before": true,
                 "after": true
             }
